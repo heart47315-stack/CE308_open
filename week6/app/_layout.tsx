@@ -1,21 +1,15 @@
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
 
-export default function Layout() {
+export default function RootLayout() {
   return (
     <Stack>
+      {/* กลุ่ม Tab ซ่อน header */}
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+      {/* หน้า product แสดง header */}
       <Stack.Screen
-        name="index"
-        options={{
-          title: 'Hello World App', // ชื่อที่แสดงใน header
-          headerStyle: {
-            backgroundColor: '#4F46E5', // สีพื้นหลังของ header
-          },
-          headerTintColor: '#FFFFFF', // สีของข้อความใน header
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 20,
-          },
-        }}
+        name="product/[id]"
+        options={{ title: "Product Detail" }}
       />
     </Stack>
   );
