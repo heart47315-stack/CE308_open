@@ -1,9 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
 
 export default function ProfileScreen() {
-    const router = useRouter();
     const menuItems = [
         { icon: 'person-circle', title: 'แก้ไขโปรไฟล์', subtitle: 'อัปเดตข้อมูลส่วนตัว' },
         { icon: 'lock-closed', title: 'ความเป็นส่วนตัว', subtitle: 'จัดการการตั้งค่าความเป็นส่วนตัว' },
@@ -17,8 +15,8 @@ export default function ProfileScreen() {
                 <View style={styles.avatarContainer}>
                     <Ionicons name="person" size={50} color="#FFFFFF" />
                 </View>
-                <Text style={styles.name}>ชื่อผู้ใช้</Text>
-                <Text style={styles.email}>user@example.com</Text>
+                <Text style={styles.name}>Somsak Digital</Text>
+                <Text style={styles.email}>somsak@example.com</Text>
             </View>
 
             <View style={styles.statsContainer}>
@@ -40,7 +38,7 @@ export default function ProfileScreen() {
                 {menuItems.map((item, index) => (
                 <TouchableOpacity key={index} style={styles.menuItem}>
                     <View style={styles.menuIconContainer}>
-                        <Ionicons name={item.icon as any} size={24} color="#4F46E5" />
+                        <Ionicons name={item.icon as any} size={24} color="#FF5722" />
                     </View>
                     <View style={styles.menuTextContainer}>
                         <Text style={styles.menuTitle}>{item.title}</Text>
@@ -53,7 +51,6 @@ export default function ProfileScreen() {
 
             <TouchableOpacity 
                 style={styles.logoutButton}
-                onPress={() => router.push('/login')}
             >
                 <Ionicons name="log-out-outline" size={20} color="#DC2626" />
                 <Text style={styles.logoutText}>ออกจากระบบ</Text>
@@ -68,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F9FAFB',
     },
     profileHeader: {
-        backgroundColor: '#4F46E5',
+        backgroundColor: '#FF5722',
         alignItems: 'center',
         padding: 32,
         paddingTop: 24,
@@ -77,7 +74,7 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         borderRadius: 50,
-        backgroundColor: '#6366F1',
+        backgroundColor: '#FF7043',
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 16,
@@ -139,11 +136,14 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#F3F4F6',
     },
+    menuIconFromProfile: {
+        color: '#FF5722',
+    },
     menuIconContainer: {
         width: 40,
         height: 40,
         borderRadius: 20,
-        backgroundColor: '#EEF2FF',
+        backgroundColor: '#FFEBEE',
         alignItems: 'center',
         justifyContent: 'center',
         marginRight: 12,

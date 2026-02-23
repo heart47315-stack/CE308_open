@@ -6,7 +6,7 @@ export default function TabLayout() {
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: '#4F46E5', // สีม่วงเข้มสำหรับไอคอนที่เลือก
+                tabBarActiveTintColor: '#FF5722', // สีส้มสำหรับไอคอนที่เลือก
                 tabBarInactiveTintColor: '#9CA3AF', // สีเทาสำหรับไอคอนที่ไม่ถูกเลือก
                 tabBarStyle: {
                     height: Platform.OS === 'ios' ? 85 : 65, // ปรับความสูงของ tab bar ตามแพลตฟอร์ม
@@ -18,7 +18,7 @@ export default function TabLayout() {
                     fontWeight: '600',
                 },
                 headerStyle: {
-                    backgroundColor: '#4F46E5',
+                    backgroundColor: '#FF5722',
                 },
                 headerTintColor: '#FFFFFF',
                 headerTitleStyle: {
@@ -30,10 +30,10 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'หน้าหลัก',
+                    title: 'Market',
                     tabBarIcon: ({ color, size, focused }) => (
                         <Ionicons 
-                        name={focused ? 'home' : 'home-outline'} // เปลี่ยนไอคอนเมื่อถูกเลือก
+                        name={focused ? 'cart' : 'cart-outline'} // เปลี่ยนไอคอนเมื่อถูกเลือก
                         size={size} 
                         color={color} 
                         />
@@ -43,7 +43,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="profile"
                 options={{
-                    title: 'โปรไฟล์',
+                    title: 'My Profile',
                     tabBarIcon: ({ color, size, focused }) => (
                         <Ionicons 
                         name={focused ? 'person' : 'person-outline'} // เปลี่ยนไอคอนเมื่อถูกเลือก 

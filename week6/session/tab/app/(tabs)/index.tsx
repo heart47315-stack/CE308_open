@@ -1,40 +1,31 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function HomeScreen() {
-    const features = [
-        { icon: 'rocket', title: 'เริ่มต้นใช้งาน', color: '#4F46E5' },
-        { icon: 'stats-chart', title: 'สถิติ', color: '#059669' },
-        { icon: 'notifications', title: 'แจ้งเตือน', color: '#DC2626' },
-        { icon: 'settings', title: 'ตั้งค่า', color: '#7C3AED' },
+export default function MarketScreen() {
+    const products = [
+        { id: 1, name: 'Premium Coffee Bean', price: 450 },
+        { id: 2, name: 'Green Tea Powder', price: 250 },
+        { id: 3, name: 'Oat Milk 1L', price: 119 },
     ];
 
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.greeting}>สวัสดี!</Text>
-                <Text style={styles.subtitle}>ยินดีต้อนรับสู่แอปพลิเคชัน</Text>
-            </View>
-
-            <View style={styles.grid}>
-                {features.map((feature, index) => (
+            <View style={styles.productList}>
+                {products.map((product) => (
                 <TouchableOpacity 
-                    key={index} 
-                    style={[styles.card, { borderLeftColor: feature.color }]}
+                    key={product.id} 
+                    style={styles.productCard}
                 >
-                    <View style={[styles.iconContainer, { backgroundColor: feature.color + '20' }]}>
-                        <Ionicons name={feature.icon as any} size={28} color={feature.color} />
+                    <View style={styles.productImageContainer}>
+                        <Ionicons name="image" size={40} color="#E5E7EB" />
                     </View>
-                    <Text style={styles.cardTitle}>{feature.title}</Text>
+                    <View style={styles.productInfo}>
+                        <Text style={styles.productName}>{product.name}</Text>
+                        <Text style={styles.productPrice}>฿{product.price}</Text>
+                    </View>
+                    <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
                 </TouchableOpacity>
                 ))}
-            </View>
-
-            <View style={styles.infoBox}>
-                <Ionicons name="information-circle" size={24} color="#4F46E5" />
-                <Text style={styles.infoText}>
-                    ตัวอย่าง Tab Navigation ที่ใช้ Expo Router
-                </Text>
             </View>
         </ScrollView>
     );
@@ -46,66 +37,43 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F9FAFB',
     },
-    header: {
-        backgroundColor: '#4F46E5',
-        padding: 24,
-        paddingTop: 20,
-        paddingBottom: 30,
-    },
-    greeting: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#FFFFFF',
-        marginBottom: 8,
-    },
-    subtitle: {
-        fontSize: 16,
-        color: '#E0E7FF',
-    },
-    grid: {
+    productList: {
         padding: 16,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: 12,
     },
-    card: {
+    productCard: {
+        flexDirection: 'row',
         backgroundColor: '#FFFFFF',
-        borderRadius: 12,
-        padding: 20,
-        width: '48%',
-        borderLeftWidth: 4,
+        borderRadius: 8,
+        padding: 16,
+        marginBottom: 12,
+        alignItems: 'center',
         elevation: 2,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 4,
     },
-    iconContainer: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+    productImageContainer: {
+        width: 60,
+        height: 60,
+        backgroundColor: '#F3F4F6',
+        borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 12,
+        marginRight: 16,
     },
-    cardTitle: {
+    productInfo: {
+        flex: 1,
+    },
+    productName: {
         fontSize: 15,
         fontWeight: '600',
         color: '#1F2937',
+        marginBottom: 4,
     },
-    infoBox: {
-        backgroundColor: '#EEF2FF',
-        margin: 16,
-        padding: 16,
-        borderRadius: 12,
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 12,
-    },
-    infoText: {
-        flex: 1,
+    productPrice: {
         fontSize: 14,
-        color: '#4338CA',
-        lineHeight: 20,
+        color: '#FF5722',
+        fontWeight: 'bold',
     },
 });
