@@ -7,7 +7,7 @@ const products = [
   { id: "3", name: "Oat Milk 1L", price: 115 },
 ];
 
-export default function MarketScreen() {
+export default function ExploreScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Market</Text>
@@ -20,7 +20,7 @@ export default function MarketScreen() {
             style={styles.card}
             onPress={() =>
               router.push({
-                pathname: "/product/[id]",
+                pathname: "/details",
                 params: item,
               })
             }
@@ -45,5 +45,5 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   name: { fontSize: 16, fontWeight: "600" },
-  price: { color: "red", marginTop: 4 },
+  price: { color: "red" },
 });
